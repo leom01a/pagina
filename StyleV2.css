@@ -1,0 +1,129 @@
+/* Header SkinTrade */
+.header {
+    width: 100%;
+    background: rgba(30,32,36,0.98);
+    box-shadow: 0 2px 12px 0 #00ffc822;
+    padding: 18px 0 10px 0;
+    margin-bottom: 32px;
+}
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.logo {
+    font-size: 2.2rem;
+    color: #00ffc8;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin: 0;
+    text-shadow: 0 0 8px #00ffc844;
+}
+.home-btn {
+    background: linear-gradient(90deg, #00ffc8 0%, #ffb300 100%);
+    color: #232526;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 24px;
+    text-decoration: none;
+    box-shadow: 0 2px 8px 0 #00ffc844;
+    transition: background 0.2s, color 0.2s;
+}
+.home-btn:hover {
+    background: linear-gradient(90deg, #ffb300 0%, #00ffc8 100%);
+    color: #fff;
+}
+body {
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    margin: 0;
+    display: block;
+}
+
+
+
+.register-container h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    color: #00ffc8;
+    text-shadow: 0 0 8px #00ffc844;
+    font-weight: 800;
+}
+
+.register-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto 0 auto;
+    background: rgba(30, 32, 36, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
+    padding: 48px 40px;
+    border: 2px solid #00ffc8;
+    box-sizing: border-box;
+}
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #00ffc8;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #00ffc8;
+    background: #232526;
+    color: #fff;
+    font-size: 1rem;
+    transition: border 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #ffb300;
+    outline: none;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(90deg, #00ffc8 0%, #ffb300 100%);
+    color: #232526;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px 0 #00ffc844;
+    transition: background 0.2s;
+}
+
+.register-btn:hover {
+    background: linear-gradient(90deg, #ffb300 0%, #00ffc8 100%);
+}
+
+.register-container .login-link {
+    display: block;
+    text-align: center;
+    margin-top: 18px;
+    color: #ffb300;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+.register-container .login-link:hover {
+    color: #00ffc8;
+}

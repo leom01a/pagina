@@ -1,3 +1,31 @@
+/* Contenedor flex para login y registro */
+.form-flex-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 80px;
+  margin-top: 40px;
+}
+.login-container {
+  max-width: 350px;
+  width: 100%;
+}
+/* Footer ancho completo */
+.footer {
+  width: 100vw;
+  left: 0;
+  position: relative;
+  background: rgba(30,32,36,0.98);
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  box-shadow: 0 -2px 12px 0 #00ffc822;
+  font-size: 1rem;
+  margin-top: 40px;
+}
+body {
+  padding-bottom: 60px;
+}
 /* Header SkinTrade */
 .header {
     width: 100%;
@@ -68,6 +96,26 @@ body {
     padding: 48px 40px;
     border: 2px solid #00ffc8;
     box-sizing: border-box;
+}
+.login-container {
+    max-width: 600px;
+    width: 100%;
+    margin: 40px auto 0 auto;
+    background: rgba(30, 32, 36, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px 0 rgba(0,0,0,0.45);
+    padding: 48px 40px;
+    border: 2px solid #00ffc8;
+    box-sizing: border-box;
+}
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 32px;
+    font-size: 2.8rem;
+    letter-spacing: 3px;
+    color: #00ffc8;
+    text-shadow: 0 0 8px #00ffc844;
+    font-weight: 800;
 }
 .form-group {
     margin-bottom: 20px;

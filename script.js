@@ -1,39 +1,40 @@
+
 $(document).ready(function(){
 
-	// AGREGANDO CLASE ACTIVE AL PRIMER ENLACE ====================
+	// AGREGAR CLASE ACTIVA AL PRIMER ENLACE ====================
 	$('.category_list .category_item[category="all"]').addClass('ct_item-active');
 
-	// FILTRANDO PRODUCTOS  ============================================
+	// FILTRAR PRODUCTOS  ============================================
 	$('.category_item').click(function(){
-		var catProduct = $(this).attr('category');
-		console.log(catProduct);
+		var categoriaProducto = $(this).attr('category');
+		console.log(categoriaProducto);
 
-		// AGREGANDO CLASE ACTIVE AL ENLACE SELECCIONADO
+		// AGREGAR CLASE ACTIVA AL ENLACE SELECCIONADO
 		$('.category_item').removeClass('ct_item-active');
 		$(this).addClass('ct_item-active');
 
-		// OCULTANDO PRODUCTOS =========================
+		// OCULTAR PRODUCTOS =========================
 		$('.product-item').css('transform', 'scale(0)');
-		function hideProduct(){
+		function ocultarProducto(){
 			$('.product-item').hide();
 		} 
-		setTimeout(hideProduct,400);
+		setTimeout(ocultarProducto,400);
 
-		// MOSTRANDO PRODUCTOS =========================
-		function showProduct(){
-			$('.product-item[category="'+catProduct+'"]').show();
-			$('.product-item[category="'+catProduct+'"]').css('transform', 'scale(1)');
+		// MOSTRAR PRODUCTOS =========================
+		function mostrarProducto(){
+			$('.product-item[category="'+categoriaProducto+'"]').show();
+			$('.product-item[category="'+categoriaProducto+'"]').css('transform', 'scale(1)');
 		} 
-		setTimeout(showProduct,400);
+		setTimeout(mostrarProducto,400);
 	});
 
-	// MOSTRANDO TODOS LOS PRODUCTOS =======================
+	// MOSTRAR TODOS LOS PRODUCTOS =======================
 	$('.category_item[category="all"]').click(function(){
-		function showAll(){
+		function mostrarTodos(){
 			$('.product-item').show();
 			$('.product-item').css('transform', 'scale(1)');
 		} 
-		setTimeout(showAll,400);
+		setTimeout(mostrarTodos,400);
 	});
 
 	// ================= MODAL DE PRODUCTO =================
@@ -41,12 +42,12 @@ $(document).ready(function(){
 		e.preventDefault();
 
 		// obtener datos del producto
-		let imgSrc = $(this).find('img').attr('src');
-		let title = $(this).find('a').text();
+		let imagenProducto = $(this).find('img').attr('src');
+		let tituloProducto = $(this).find('a').text();
 
 		// ponerlos en el modal
-		$('#modalImage').attr('src', imgSrc);
-		$('#modalTitle').text(title);
+		$('#modalImage').attr('src', imagenProducto);
+		$('#modalTitle').text(tituloProducto);
 
 		// mostrar modal
 		$('#productModal').fadeIn();
@@ -66,81 +67,81 @@ $(document).ready(function(){
 
 // ================= CARRITO DE COMPRAS =================
 
-let cart = [];
+let carrito = [];
 
 
 const precios = {
-    "Cuchillo Kukri | Endurecido": 12000,
-    "Cuchillo Kukri | Forest DDPAT": 13000,
-    "USP-S": 25000,
-    "Five-SeveN": 27000,
-    "MP7 | Solo sonríe": 18000,
-    "AK-47 | Herencia": 32000,
-    "AWP | Asiimov": 50000,
-    "Recortado | Entrada analógica": 20000,
-    "Néguev | Deslumbrar": 40000
+	"Cuchillo Kukri | Endurecido": 12000,
+	"Cuchillo Kukri | Forest DDPAT": 13000,
+	"USP-S": 25000,
+	"Five-SeveN": 27000,
+	"MP7 | Solo sonríe": 18000,
+	"AK-47 | Herencia": 32000,
+	"AWP | Asiimov": 50000,
+	"Recortado | Entrada analógica": 20000,
+	"Néguev | Deslumbrar": 40000
 };
 
 
 $('.product-item').click(function(){
-    let title = $(this).find('a').text();
-    let img = $(this).find('img').attr('src');
-    let price = precios[title]; 
+	let tituloProducto = $(this).find('a').text();
+	let imagenProducto = $(this).find('img').attr('src');
+	let precioProducto = precios[tituloProducto]; 
 
-    $('#modalTitle').text(title);
-    $('#modalPrice').text("$" + price);
-    $('#modalImage').attr('src', img);
+	$('#modalTitle').text(tituloProducto);
+	$('#modalPrice').text("$" + precioProducto);
+	$('#modalImage').attr('src', imagenProducto);
 
 
-    $('#addToCart').data('product', {title, price, img});
+	$('#addToCart').data('producto', {tituloProducto, precioProducto, imagenProducto});
 
-    $('#productModal').fadeIn();
+	$('#productModal').fadeIn();
 });
 
 
 $('.close').click(function(){
-    $('#productModal').fadeOut();
+	$('#productModal').fadeOut();
 });
 
 
 $('#addToCart').click(function(){
-    let product = $(this).data('product');
-    cart.push(product);
-    renderCart();
-    $('#productModal').fadeOut();
+	let producto = $(this).data('producto');
+	carrito.push(producto);
+	renderizarCarrito();
+	$('#productModal').fadeOut();
 });
 
 
 $(document).on('click', '.remove-item', function(){
-    let index = $(this).data('index');
-    cart.splice(index, 1);
-    renderCart();
+	let indice = $(this).data('index');
+	carrito.splice(indice, 1);
+	renderizarCarrito();
 });
 
 
 $('#emptyCart').click(function(){
-    cart = [];
-    renderCart();
+	carrito = [];
+	renderizarCarrito();
 });
 
 
-function renderCart(){
-    let cartList = $('#cartItems');
-    cartList.empty();
-    let total = 0;
+function renderizarCarrito(){
+	let listaCarrito = $('#cartItems');
+	listaCarrito.empty();
+	let total = 0;
 
-    cart.forEach((item, index) => {
-        total += item.price;
-        cartList.append(`
-            <li>
-                <img src="${item.img}" width="40"> 
-                ${item.title} - $${item.price} 
-                <button class="remove-item" data-index="${index}">X</button>
-            </li>
-        `);
-    });
+	carrito.forEach((item, indice) => {
+		total += item.precioProducto;
+		listaCarrito.append(`
+			<li>
+				<img src="${item.imagenProducto}" width="40"> 
+				${item.tituloProducto} - $${item.precioProducto} 
+				<button class="remove-item" data-index="${indice}">X</button>
+			</li>
+		`);
+	});
 
-    $('#cartTotal').text("Total: $" + total);
+	$('#cartTotal').text("Total: $" + total);
 }
 
 

@@ -1,9 +1,28 @@
+/* Botones de navegación en el header */
+.nav-link {
+  background: linear-gradient(90deg, #00ffc8 0%, #ffb300 100%);
+  color: #232526;
+  font-weight: bold;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  text-decoration: none;
+  box-shadow: 0 2px 8px 0 #00ffc844;
+  transition: background 0.2s, color 0.2s;
+  margin-left: 8px;
+  display: inline-block;
+}
+.nav-link:hover {
+  background: linear-gradient(90deg, #ffb300 0%, #00ffc8 100%);
+  color: #fff;
+}
 /* Contenedor flex para login y registro */
 .form-flex-container {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 80px;
+  gap: 1px;
   margin-top: 40px;
 }
 .login-container {
@@ -12,19 +31,20 @@
 }
 /* Footer ancho completo */
 .footer {
-  width: 100vw;
+  position: fixed;     /* Siempre fijo */
   left: 0;
-  position: relative;
+  bottom: 0;           /* Pegado abajo */
+  width: 100%;         /* Ancho completo */
   background: rgba(30,32,36,0.98);
   color: #fff;
   text-align: center;
   padding: 18px 0 10px 0;
   box-shadow: 0 -2px 12px 0 #00ffc822;
   font-size: 1rem;
-  margin-top: 40px;
+  z-index: 100;        /* Para que quede encima del contenido */
 }
 body {
-  padding-bottom: 60px;
+  padding-bottom: 0px;
 }
 /* Header SkinTrade */
 .header {
@@ -66,12 +86,11 @@ body {
     color: #fff;
 }
 body {
-    background: linear-gradient(120deg, #232526 0%, #414345 100%);
-    font-family: 'Segoe UI', Arial, sans-serif;
-    color: #fff;
-    min-height: 100vh;
-    margin: 0;
-    display: block;
+  background: linear-gradient(120deg, #232526 0%, #414345 100%);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #fff;
+  min-height: 100vh;
+  margin: 0;
 }
 
 
@@ -359,21 +378,21 @@ body {
   background: rgba(30,32,36,0.98);
   box-shadow: 0 2px 12px rgba(0,0,0,0.6);
 }
-.header {
-  padding: 16px 0; margin-bottom: 32px; position: sticky; top: 0; z-index: 100;
-  border-bottom: 2px solid #00ffc8;
+/* Footer ancho completo */
+.footer {
+  width: 100vw;
+  left: 0;
+  position: relative;
+  background: rgba(30,32,36,0.98);
+  color: #fff;
+  text-align: center;
+  padding: 18px 0 10px 0;
+  box-shadow: 0 -2px 12px 0 #00ffc822;
+  font-size: 1rem;
+  margin-top: 40px;
 }
-.header-content { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 2rem; font-weight: 900; letter-spacing: 2px; color: #00ffc8; text-shadow: 0 0 8px #00ffc844; }
-.nav { display: flex; gap: 20px; }
-.nav-link {
-  color: #fff; text-decoration: none; font-weight: 600; font-size: 1.05rem;
-  padding: 8px 16px; border-radius: 8px; transition: 0.3s;
-}
-.nav-link:hover {
-  background: linear-gradient(90deg,#00ffc8 0%,#ffb300 100%);
-  color: #232526; box-shadow: 0 2px 8px #00ffc844;
-}
+
+
 @media (max-width: 700px) {
   .header-content { flex-direction: column; align-items: flex-start; }
   .nav { margin-top: 12px; flex-wrap: wrap; gap: 12px; }
